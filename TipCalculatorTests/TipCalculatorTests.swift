@@ -1,26 +1,25 @@
 import UIKit
 import XCTest
 
-class TipCalculatorTests: XCTestCase {   
+class TipCalculatorTests: XCTestCase {
+    var tipCalculator: TipCalculatorModel?
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        tipCalculator = TipCalculatorModel(total: 100, taxPct: 0.2)
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+
+    func testCalculationOfSubtotal() {
+        XCTAssertEqualWithAccuracy(tipCalculator!.subtotal, (100 / (1.2)), 0.001)
+        tipCalculator!.taxPct = 0.25
+        XCTAssertEqualWithAccuracy(tipCalculator!.subtotal, (100 / (1.25)), 0.001)
+        tipCalculator!.total = 150
+        XCTAssertEqualWithAccuracy(tipCalculator!.subtotal, (150 / (1.25)), 0.001)
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+
+    func testCalculateTipWithValidTipPct() {
+        XCTAssertEqualWithAccuracy(tipCalculator!.calcTipWithTipPct(0), 0.0, 0.001)
+        XCTAssertEqualWithAccuracy(tipCalculator!.calcTipWithTipPct(0.1), (0.1 * tipCalculator!.subtotal), 0.001)
+        XCTAssertEqualWithAccuracy(tipCalculator!.calcTipWithTipPct(1.0), tipCalculator!.subtotal, 0.001)
     }
 }
