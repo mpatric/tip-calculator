@@ -14,18 +14,16 @@ class TipCalculatorModel {
         self.taxPct = taxPct
     }
     
-    func calcTipWithTipPct(tipPct: Double) -> Double {
-        return subtotal * tipPct
+    func calcTipWithTipPct(tipPct: Double) -> (tipAmt: Double, total: Double) {
+        let tipAmt = subtotal * tipPct
+        return (tipAmt, total + tipAmt)
     }
     
-    func returnPossibleTips() -> [Int: Double] {
+    func returnPossibleTips() -> [Int: (tipAmt: Double, total: Double)] {
         let possibleTipsInferred = [0.15, 0.18, 0.20]
-        let possibleTipsExplicit:[Double] = [0.15, 0.18, 0.20]
-        
-        var retval = [Int: Double]()
+        var retval = Dictionary<Int, (tipAmt: Double, total: Double)>()
         for possibleTip in possibleTipsInferred {
-            let intPct = Int(possibleTip*100)
-            
+            let intPct = Int(possibleTip * 100)
             retval[intPct] = calcTipWithTipPct(possibleTip)
         }
         return retval
