@@ -15,6 +15,8 @@
 		4C3CF1321A7F950400B821BB /* TipCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CF1311A7F950400B821BB /* TipCalculatorTests.swift */; };
 		4C3CF13C1A7F959400B821BB /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CF13B1A7F959400B821BB /* TipCalculatorModel.swift */; };
 		4C3CF13D1A7F959400B821BB /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CF13B1A7F959400B821BB /* TipCalculatorModel.swift */; };
+		4C402E411A7FAFC0007525B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CF11D1A7F950400B821BB /* ViewController.swift */; };
+		4C402E421A7FB0FC007525B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3CF11F1A7F950400B821BB /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C402E421A7FB0FC007525B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3CF1321A7F950400B821BB /* TipCalculatorTests.swift in Sources */,
+				4C402E411A7FAFC0007525B0 /* ViewController.swift in Sources */,
 				4C3CF13D1A7F959400B821BB /* TipCalculatorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
